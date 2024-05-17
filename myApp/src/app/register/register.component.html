@@ -1,0 +1,45 @@
+<div class="container">
+    <h2>Register</h2>
+    <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" [(ngModel)]="userObj.username" required class="form-control">
+        <div class="text-danger" [hidden]="registerForm.controls['username']?.valid || !registerForm.controls['username']?.touched">
+          Username is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" [(ngModel)]="userObj.password" required class="form-control">
+        <div class="text-danger" [hidden]="registerForm.controls['password']?.valid || !registerForm.controls['password']?.touched">
+          Password is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="confirmpassword">Confirm Password</label>
+        <input type="password" id="confirmpassword" name="confirmpassword" [(ngModel)]="userObj.confirmpassword" required class="form-control">
+        <div class="text-danger" [hidden]="registerForm.controls['confirmpassword']?.valid || !registerForm.controls['confirmpassword']?.touched">
+          Password is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age" [(ngModel)]="userObj.age" required class="form-control">
+        <div class="text-danger" [hidden]="registerForm.controls['age']?.valid || !registerForm.controls['age']?.touched">
+          Password is required.
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-md-8">
+            <button type="submit" class="btn btn-primary mt-3" [disabled]="registerForm.invalid">Register</button>
+        </div>
+        <div class="col-md-4">
+            <a href="/login" class="btn btn-primary mt-3">Back to Login</a>
+        </div>
+      </div>
+    </form>
+</div>
